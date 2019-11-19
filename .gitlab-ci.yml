@@ -13,4 +13,4 @@ eslint:
     eslint-plugin-import \
     eslint-plugin-jsx-a11y \
     eslint-plugin-react-app
-  - node_modules/eslint/bin/eslint.js 
+  - node_modules/eslint/bin/eslint.js src
