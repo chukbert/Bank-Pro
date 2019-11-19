@@ -10,11 +10,16 @@ class TransactionHistory extends React.Component {
         const titleStyle ={
             fontSize: "32px",
             padding: "0",
-            margin: "0"
+            margin: "0",
+            fontWeight: "450"
         };
+        const blueBackground ={
+            background: "blue"
+        };
+        
         return(
             <section style={pageStyle}>
-                <BaseCard>
+                <BaseCard style={blueBackground}>
                     <p style={titleStyle}>
                     Transaction History
                     </p>
