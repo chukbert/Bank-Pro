@@ -16,7 +16,7 @@ class TransactionHistory extends React.Component {
             <section style={pageStyle}>
                 <BaseCard>
                     <p style={titleStyle}>
-                    Transaction History
+                    Transaction History TEST
                     </p>
                 </BaseCard>
                 <TransItem date="date" time="time" type="type" amount="amount" account="account"/>
