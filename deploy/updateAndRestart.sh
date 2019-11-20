@@ -31,5 +31,7 @@ cd /home/ubuntu/bank-pro
 echo "Running npm install"
 npm install
 
+npm run build
+
 #Restart the node server
-npm start
+npm run start
