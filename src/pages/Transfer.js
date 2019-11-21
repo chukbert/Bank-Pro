@@ -1,5 +1,5 @@
 import React from 'react';
-import BaseCard from '../components/BaseCard';
+import {BaseCard, BaseCardAlternate} from '../components/BaseCard';
 import InputGroup from '../components/InputGroup'
 
 class Transfer extends React.Component {
