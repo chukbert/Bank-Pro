@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import './App.css';
 import TransactionHistory from './pages/TransactionHistory';
+import Transfer from './pages/Transfer';
 
 
 function App() {
@@ -15,7 +16,7 @@ function App() {
             {/* login page */}
         </Route>
         <Route exact path='/transfer'>
-            {/* transfer page */}
+            <Transfer />
         </Route>
         <Route exact path='/history'>
            <TransactionHistory/>
