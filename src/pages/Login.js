@@ -29,8 +29,8 @@ class Login extends React.Component {
             borderRadius: "5px",
             boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1)",
             width: "300px",
-            margin: "0px auto"
-
+            margin: "0px auto",
+            paddingBottom: "20px"
           }
           
         const titleStyle = {
@@ -41,7 +41,7 @@ class Login extends React.Component {
          
         const buttonStyle ={
             borderRadius: "5px",
-            backgroundColor: "#00c1ec",
+            backgroundColor: "#3e64ff",
             border: "none",
             color: "white",
             padding: "15px 32px",
