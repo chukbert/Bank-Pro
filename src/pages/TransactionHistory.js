@@ -1,5 +1,5 @@
 import React from 'react';
-import BaseCard from '../components/BaseCard';
+import {BaseCard, BaseCardAlternate} from '../components/BaseCard';
 import TransItem from '../components/TransItem';
 
 class TransactionHistory extends React.Component {
