@@ -1,6 +1,6 @@
 import React from 'react';
-import {BaseCard, BaseCardAlternate} from '../components/BaseCard';
-import InputGroup from '../components/InputGroup'
+import BaseCard from '../components/BaseCard';
+import FormGroup from '../components/FormGroup'
 
 class Transfer extends React.Component {
     render() {
@@ -24,8 +24,7 @@ class Transfer extends React.Component {
             background: "azure",
             color: "black",
             width: "60%",
-            height: "auto",
-            alignItems: "center"
+            height: "auto"
         };
         
         return(
@@ -35,20 +34,7 @@ class Transfer extends React.Component {
                     Transfer Page
                     </p>
                 </BaseCard>
-                <div className="container" style={containerStyle}>
-                    <h2>Recipients Details</h2>
-                    <InputGroup title="Name" name="name" type="text" placeholder="Recipient's name" />
-                    <InputGroup title="Email" name="email" type="text" placeholder="Recipient's email" />
-                    <InputGroup title="Account" name="account" type="text" placeholder="Recipient's account" />
-                </div>
-                <div className="container" style={containerStyle}>
-                    <h2>Amount</h2>
-                    <InputGroup name="amount" type="number" placeholder="amount.." />
-                </div>
-                <div className="container" style={containerStyle}>
-                    <h2>Messages</h2>
-                    <InputGroup name="messages" type="text" placeholder="put your massages here.." />
-                </div>
+                <FormGroup />
             </section>
         );
     }
