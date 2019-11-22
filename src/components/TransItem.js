@@ -5,7 +5,7 @@ class TransItem extends React.Component {
         const itemStyle ={
             borderBottomStyle:"solid",
             borderWidth:"1px",
-            margin:"8px 24px",
+            margin:"8px 72px",
             display:"flex",
             maxWidth:"1340px",
             justifyContent:"space-between",

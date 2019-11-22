@@ -4,13 +4,14 @@ import './App.css';
 import TransactionHistory from './pages/TransactionHistory';
 import Transfer from './pages/Transfer';
 import Login from './pages/Login';
+import Home from './pages/Home';
 
 function App() {
   return (
     <Router>
       <Switch>
         <Route exact path='/'>
-            {/* home page */}
+            <Home/>
         </Route>
         <Route exact path='/login'>
             <Login/>
