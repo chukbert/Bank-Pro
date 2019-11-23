@@ -1,15 +1,43 @@
 var request = require('request')
+var parser = require('fast-xml-parser');
+var he = require('he');
+ 
+var opt = {
+    attributeNamePrefix : "@_",
+    attrNodeName: "attr", //default is 'false'
+    textNodeName : "#text",
+    ignoreAttributes : true,
+    ignoreNameSpace : false,
+    allowBooleanAttributes : false,
+    parseNodeValue : true,
+    parseAttributeValue : false,
+    trimValues: true,
+    cdataTagName: "__cdata", //default is 'false'
+    cdataPositionChar: "\\c",
+    localeRange: "", //To support non english character in tag/attribute values.
+    parseTrueNumberOnly: false,
+    arrayMode: false, //"strict"
+    attrValueProcessor: (val, attrName) => he.decode(val, {isAttributeValue: true}),//default is a=>a
+    tagValueProcessor : (val, tagName) => he.decode(val), //default is a=>a
+    stopNodes: ["parse-me-as-string"]
+};
+ 
+
 
 const requestTrans = options => {
   return new Promise((resolve, reject) => {
     request(options, (error, response, body) => {
       if (!error && response.statusCode === 200) {
-        let nama = body.split('<namaNasabah>')[1].split('</namaNasabah>')[0]
-        let rek = body.split('<no_rekening>')[1].split('</no_rekening>')[0]
-        let balance =  body.split('<balance>')[1].split('</balance>')[0]
-        let data = { nama : nama, rek: rek, balance: balance}
+        if( parser.validate(body) === true) { //optional (it'll return an object in case it's not valid)
+            var jsonObj = parser.parse(body,opt);
+        }
+     
+        // Intermediate obj
+        var tObj = parser.getTraversalObj(body.split('<ns2:getDataNasabahResponse xmlns:ns2="http://services/">')[1].split('</ns2:getDataNasabahResponse>')[0],opt);
+        var jsonObj = parser.convertToJson(tObj,opt);
+        // console.log(jsonObj);
         // console.log(data)
-        resolve(data)
+        resolve(jsonObj)
       } else {
         reject(error)
       }
@@ -55,7 +83,7 @@ const info = async number => {
 //   }
 
   let exist = await requestTrans(options)
-  console.log(exist)
+//   console.log(exist)
   return exist
 }
 

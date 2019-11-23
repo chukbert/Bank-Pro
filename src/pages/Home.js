@@ -17,15 +17,12 @@ class TransactionHistory extends React.Component {
             bl : "0"
         };
     }
-    getInfo() {
-        // return res
-    }
     
     componentDidMount() {
         info(Cookies.get("account")).then((res) => {
             this.setState({
-                nama: res.nama,
-                acc: res.rek,
+                nama: res.namaNasabah,
+                acc: res.no_rekening,
                 bl : res.balance
             })
         });
