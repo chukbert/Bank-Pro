@@ -4,8 +4,33 @@ import TransItem from '../components/TransItem';
 import transfer from '../assets/transfer.png'
 import history from '../assets/history.png'
 import {Link} from 'react-router-dom'
+import Cookies from 'js-cookie'
+import info from '../soap/info'
+
 
 class TransactionHistory extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            nama: "name",
+            acc: "0",
+            bl : "0"
+        };
+    }
+    getInfo() {
+        // return res
+    }
+    
+    componentDidMount() {
+        info(Cookies.get("account")).then((res) => {
+            this.setState({
+                nama: res.nama,
+                acc: res.rek,
+                bl : res.balance
+            })
+        });
+    }
+
     render() {
         const pageStyle ={
             padding: "0 72px"
@@ -48,15 +73,17 @@ class TransactionHistory extends React.Component {
                 <BaseCardAlternate>
                     <div style={flexStyle}>
                         <div style={titleStyle}>
-                        Bariansyah
+                        {/* {Cookies.get('account')} */}
+                        {/* {this.getInfo()["nama"]} */}
+                        {this.state.nama}
                         </div>
                         <div style={infoDiv}>
                             Account Number
-                            <div style={info}>1</div>
+                            <div style={info}>{this.state.acc}</div>
                         </div>
                         <div style={infoDiv}>
                             Balance
-                            <div style={info}>Rp200.000.-</div>
+                            <div style={info}>Rp{this.state.bl}.-</div>
                         </div>
                     </div>
                 </BaseCardAlternate>
