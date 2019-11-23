@@ -2,6 +2,7 @@ import React from 'react';
 import {BaseCard, BaseCardAlternate} from '../components/BaseCard';
 import FormGroup from '../components/FormGroup'
 
+
 class Transfer extends React.Component {
     render() {
         const pageStyle ={
