@@ -8,7 +8,8 @@ class FormGroup extends React.Component {
         super()
         this.state = { 
             account: "",
-            amount: ""
+            amount: "",
+            status: ""
         };
     }
 
@@ -24,7 +25,13 @@ class FormGroup extends React.Component {
 
     sendMoney = () => {
         // sendMoney
-        transfer(Cookies.get("account"), this.state.account, this.state.amount)
+        transfer(Cookies.get("account"), this.state.account, this.state.amount).then((res) => {
+            if(res.return == "SUCCEED" || res.return== "SUCCEEDVA"){
+                this.setState({status:"transaction successful"})
+            } else {
+                this.setState({status:"transaction failed"})
+            }
+        })
         console.log(this.state)
     }
 
@@ -63,7 +70,10 @@ class FormGroup extends React.Component {
                     </form>
                     <div>
                             <button style={buttonStyle} class="button" onClick={this.sendMoney}>Transfer</button>
-                        </div>
+                    </div>
+                    <div>
+                        <p>{this.state.status}</p>
+                    </div>
                 </div>
             </div>
         );
