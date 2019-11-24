@@ -90,4 +90,4 @@ const transfer = async (sender, receiver, amount) => {
   return exist
 }
 
-module.exports = transfer
+export default transfer
