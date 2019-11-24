@@ -1,38 +1,38 @@
 import React from 'react';
+import transfer from '../soap/transfer'
+import Cookies from 'js-cookie'
+
 
 class FormGroup extends React.Component {
     constructor() {
         super()
         this.state = { 
             account: "",
-            name: "",
-            email: "",
-            amount: ""
+            amount: "",
+            status: ""
         };
     }
 
     inputAccount = (event) => {
         this.setState({account: event.target.value});
-        console.log(this.state.account);
-    }
-
-    inputName = (event) => {
-        this.setState({name: event.target.value});
-        console.log(this.state.name);
-    }
-
-    inputEmail = (event) => {
-        this.setState({account: event.target.value});
-        console.log(this.state.email);
+        // console.log(this.state.account);
     }
 
     inputAmount = (event) => {
-        this.setState({account: event.target.value});
-        console.log(this.state.amount);
+        this.setState({amount: event.target.value});
+        // console.log(this.state.amount);
     }
 
-    redirect = () => {
-        // redirect 
+    sendMoney = () => {
+        // sendMoney
+        transfer(Cookies.get("account"), this.state.account, this.state.amount).then((res) => {
+            if(res.return == "SUCCEED" || res.return == "SUCCEEDVA"){
+                this.setState({status:"transaction successful"})
+            } else {
+                this.setState({status:"transaction failed"})
+            }
+        })
+        console.log(this.state)
     }
 
     render() {
@@ -65,17 +65,15 @@ class FormGroup extends React.Component {
                     <form class="form" enctype="multipart/form-data">
                         <p>Recipient's Account</p>
                         <input style={inputStyle} placeholder="11 1111 1111 111" type="text" name="account" onChange={this.inputAccount}/>
-                        <p>Recipient's Name</p>
-                        <input style={inputStyle} placeholder="recipient's name" type="text" name="name" onChange={this.inputName}/>
-                        <p>Recipient's Email</p>
-                        <input style={inputStyle} placeholder="email@email.com" type="text" name="email" onChange={this.inputEmail}/>
                         <p>Amount</p>
                         <input style={inputStyle} placeholder="amount to transfer" type="text" name="amount" onChange={this.inputAmount}/>
-                        <div>
-                            <button style={buttonStyle} class="button" type="submit" onClick={this.redirect}>transfer</button>
-                        </div>
                     </form>
-
+                    <div>
+                            <button style={buttonStyle} class="button" onClick={this.sendMoney}>Transfer</button>
+                    </div>
+                    <div>
+                        <p>{this.state.status}</p>
+                    </div>
                 </div>
             </div>
         );

@@ -1,13 +1,20 @@
 import React from 'react';
 import {BaseCard, BaseCardAlternate} from '../components/BaseCard';
+import Cookies from 'js-cookie'
+import {Link, Redirect} from 'react-router-dom'
+
+
 
 class Login extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            no_rekening: ""
+            no_rekening: "",
+            navigate: false
         };
     }
+
+
 
     inputNoRekening = (event) => {
         this.setState({no_rekening: event.target.value});
@@ -16,9 +23,15 @@ class Login extends React.Component {
 
     cekNoRekening = () => {
         // akes ws-bank SOAP
+        Cookies.set('account', this.state.no_rekening)
+        this.setState({navigate: true})
     }
 
     render() {
+        let navigate = this.state.navigate
+        if (navigate) {
+            return <Redirect to="/home" push={true} />
+          }
         const pageStyle ={
             padding: "24px"
         } 
@@ -91,7 +104,9 @@ class Login extends React.Component {
                     <form style={formStyle}>
                         <p style={font}>No. Rekening</p>
                         <input style={textStyle} placeholder= "Input no. rekening" type= "number" onChange= {this.inputNoRekening}></input>
-                        <button style={buttonStyle} type= "submit" onClick= {this.cekNoRekening}>Login</button>
+                        <button style={buttonStyle} type= "submit" onClick= {this.cekNoRekening}>
+                            Login
+                        </button>
                     </form>
                 </div>
             </section>
