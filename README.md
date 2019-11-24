@@ -79,7 +79,7 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 ![](ss/transfer.png)
 
 ## Transfer History
-![](ss/transhit.png)
+![](ss/transhist.png)
 
 ## Link Deploymen
-![Bank Pro](http://ec2-54-174-5-130.compute-1.amazonaws.com:3000/)
+[Bank Pro](http://ec2-54-174-5-130.compute-1.amazonaws.com:3000/)
