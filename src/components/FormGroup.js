@@ -26,7 +26,7 @@ class FormGroup extends React.Component {
     sendMoney = () => {
         // sendMoney
         transfer(Cookies.get("account"), this.state.account, this.state.amount).then((res) => {
-            if(res.return == "SUCCEED" || res.return== "SUCCEEDVA"){
+            if(res.return == "SUCCEED" || res.return == "SUCCEEDVA"){
                 this.setState({status:"transaction successful"})
             } else {
                 this.setState({status:"transaction failed"})
