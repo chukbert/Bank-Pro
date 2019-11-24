@@ -66,3 +66,26 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `yarn build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+### Screenshot
+
+## Login
+![](ss/login.png)
+
+## Halaman Utama
+![](ss/main.png)
+
+## Transfer
+![](ss/transfer.png)
+
+## Transfer History
+![](ss/transhist.png)
+
+## Link Deployment
+[Bank Pro](http://ec2-54-174-5-130.compute-1.amazonaws.com:3000/)
+
+### Pembagian Tugas DPPL :
+1. CI/CD: 13517081, 13517093
+2. Setting gitlab runner:13517081
+3. Unit Testing : 13517114
+4. Eksplorasi dan setup mesin deployment : 13517093
