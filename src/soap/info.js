@@ -87,4 +87,4 @@ const info = async number => {
   return exist
 }
 
-module.exports = info
+export default info

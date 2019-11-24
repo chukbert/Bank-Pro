@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.15.1",
     "fast-xml-parser": "^3.14.0",
     "he": "^1.2.0",
     "js-cookie": "^2.2.1",
