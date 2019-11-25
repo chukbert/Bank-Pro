@@ -84,6 +84,8 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 ## Link Deployment
 [Bank Pro](http://ec2-54-174-5-130.compute-1.amazonaws.com:3000/)
 
+### Script Testing di branch Develop
+
 ### Pembagian Tugas DPPL :
 1. CI/CD: 13517081, 13517093
 2. Setting gitlab runner:13517081
